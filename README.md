@@ -21,7 +21,7 @@ repositories {
 }
 
 dependencies {
-    implementation 'com.github.jy2694:j-toss-invest:0.1.0'
+    implementation 'com.github.jy2694:j-toss-invest:v0.1.0'
 }
 ```
 
@@ -34,7 +34,7 @@ repositories {
 }
 
 dependencies {
-    implementation("com.github.jy2694:j-toss-invest:0.1.0")
+    implementation("com.github.jy2694:j-toss-invest:v0.1.0")
 }
 ```
 
@@ -51,7 +51,7 @@ dependencies {
 <dependency>
     <groupId>com.github.jy2694</groupId>
     <artifactId>j-toss-invest</artifactId>
-    <version>0.1.0</version>
+    <version>v0.1.0</version>
 </dependency>
 ```
 
