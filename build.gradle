@@ -48,6 +48,18 @@ publishing {
     publications {
         maven(MavenPublication) {
             from components.java
+
+            pom {
+                name = 'j-toss-invest'
+                description = 'Unofficial Java client for the Toss Invest Open API'
+                url = 'https://github.com/jy2694/j-toss-invest'
+                licenses {
+                    license {
+                        name = 'MIT License'
+                        url = 'https://opensource.org/licenses/MIT'
+                    }
+                }
+            }
         }
     }
 }
