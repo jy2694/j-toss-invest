@@ -1,0 +1,53 @@
+plugins {
+    // This is a library that wraps the Toss Invest Open API.
+    id 'java-library'
+    // Publish a Maven artifact so JitPack can resolve this library.
+    id 'maven-publish'
+}
+
+group = 'com.github.jy2694'
+version = '0.1.0'
+
+repositories {
+    // Use Maven Central for resolving dependencies.
+    mavenCentral()
+}
+
+dependencies {
+    // Use JUnit Jupiter for testing.
+    testImplementation libs.junit.jupiter
+
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+    // Jackson for JSON (de)serialization. jsr310 adds java.time support.
+    api libs.jackson.databind
+    api libs.jackson.datatype.jsr310
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+    // Ship sources and javadoc jars alongside the main artifact.
+    withSourcesJar()
+    withJavadocJar()
+}
+
+tasks.named('test') {
+    // Use JUnit Platform for unit tests.
+    useJUnitPlatform()
+}
+
+tasks.withType(Javadoc).configureEach {
+    options.encoding = 'UTF-8'
+    // Korean doc comments use HTML that the strict doclint rejects; relax it.
+    options.addStringOption('Xdoclint:none', '-quiet')
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            from components.java
+        }
+    }
+}
